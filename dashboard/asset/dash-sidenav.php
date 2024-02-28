@@ -1,3 +1,12 @@
+<?php
+
+function isPageActive($pageName)
+{
+    $currentPage = basename($_SERVER['PHP_SELF']);
+    return ($currentPage === $pageName) ? 'class="active"' : '';
+ } 
+?>
+
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <style>@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
@@ -42,7 +51,7 @@ body{
 }    
 
 .wrapper .sidebar ul li a{
-  color: #bdb8d7;
+  color: white;
   display: block;
 }
 
@@ -105,13 +114,24 @@ body{
   .social_media{
     display: none !important;
   }
-} 
-.active, .btn:hover {
+}
+
+
+.btn:hover {
 
   background-color: #666;
   color: white;
   width: 25px;
   
+}
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+a.active {
+  background-color: #79b2f7; /* Change this to the desired active color */
 }
 
 
@@ -121,13 +141,13 @@ body{
     <div class="sidebar">
         <h2>Welcome <?php echo $_SESSION['username'] ?> </h2>
         <ul>
-            <li><a href="dashboard.php"><i class="fas fa-home btn active"></i>Home</a></li>
-            <li><a href="dash-userProfile.php"><i class="fas fa-user btn"></i>My Profile</a></li>
-            <li><a href="#"><i class="fas fa-address-card btn"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram btn"></i>portfolio</a></li>
-            <li><a href="#"><i class="fas fa-blog btn"></i>Blogs</a></li>
-            <li><a href="#"><i class="fas fa-address-book btn"></i>Contact</a></li>
-            <li><a href="#"><i class="fas fa-map-pin btn"></i>Map</a></li>
+            <li><a href="dashboard.php" <?php echo isPageActive('dashboard.php'); ?> ><i class="fas fa-home btn active"></i>Home</a></li>
+            <li><a href="dash-userProfile.php" <?php echo isPageActive('dash-userProfile.php'); ?> ><i class="fas fa-user btn"></i>My Profile</a></li>
+            <li><a href="#" <?php echo isPageActive('about.php'); ?> ><i class="fas fa-address-card btn"></i>About</a></li>
+            <li><a href="#" <?php echo isPageActive('portfolio.php'); ?> ><i class="fas fa-project-diagram btn"></i>portfolio</a></li>
+            <li><a href="#" <?php echo isPageActive('blogs.php'); ?> ><i class="fas fa-blog btn"></i>Blogs</a></li>
+            <li><a href="#" <?php echo isPageActive('contact.php'); ?> ><i class="fas fa-address-book btn"></i>Contact</a></li>
+            <li><a href="#" <?php echo isPageActive('map.php'); ?> ><i class="fas fa-map-pin btn"></i>Map</a></li>
         </ul> 
         <div class="social_media">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -139,15 +159,19 @@ body{
     <div class="main_content">
 
 
-    <script>
-// Add active class to the current button (highlight it)
-var header = document.getElementById("myDsidebarIV");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the current pathname
+    var path = window.location.pathname;
+
+    // Find the corresponding link and add the "active" class
+    var links = document.querySelectorAll('nav a');
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].getAttribute('href') === path) {
+        links[i].classList.add('active');
+      }
+    }
   });
-}
 </script>
