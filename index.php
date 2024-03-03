@@ -548,7 +548,7 @@ include 'header.php';
                                         <span class="author-title">SCIENCE STUDENT</span>
                                     </div>
                                     <figure class="author-img">
-                                        <img src="assets/img/educator-img22.jpg" alt="">
+                                        <img src="assets/orimi/person.jpg" alt="">
                                     </figure>
                                 </div>
                             </div>
@@ -565,7 +565,7 @@ include 'header.php';
                                         <span class="author-title">ART STUDENT</span>
                                     </div>
                                     <figure class="author-img">
-                                        <img src="assets/img/educator-img21.jpg" alt="">
+                                        <img src="assets/orimi/person.jpg" alt="">
                                     </figure>
                                 </div>
                             </div>
@@ -591,7 +591,7 @@ include 'header.php';
                         <div class="inner-blog-wrap">
                             <article class="post">
                                 <figure class="feature-image">
-                                    <img src="assets/img/educator-img12.jpg" alt="">
+                                    <img src="assets/orimi/IMG_0764-1-1024x683.jpg" alt="">
                                     <span class="cat-meta">
                                         <a href="blog-archive.html">EDUCATION</a>
                                     </span>
@@ -607,7 +607,7 @@ include 'header.php';
                             </article>
                             <article class="post">
                                 <figure class="feature-image">
-                                    <img src="assets/img/educator-img14.jpg" alt="">
+                                    <img src="assets/orimi/library.jpg" alt="">
                                     <span class="cat-meta">
                                         <a href="blog-archive.html">Seminar</a>
                                     </span>
@@ -623,7 +623,7 @@ include 'header.php';
                             </article>
                             <article class="post item-3">
                                 <figure class="feature-image">
-                                    <img src="assets/img/educator-img13.jpg" alt="">
+                                    <img src="assets/orimi/DSC_1412.jpg" alt="">
                                     <span class="cat-meta">
                                         <a href="blog-archive.html">EDUCATION</a>
                                     </span>

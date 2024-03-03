@@ -69,7 +69,7 @@ include 'header.php';
                     </div>
                     <div class="about-banner">
                         <figure class="about-image figure-round-border">
-                            <img src="assets/img/educator-img14.jpg" alt="">
+                            <img src="assets/orimi/pexels-absior-江月-15721786.jpg" alt="About Us">
                         </figure>
                         <div class="about-left-banner">
                             <div class="banner-icon">
@@ -146,7 +146,7 @@ include 'header.php';
                         <div class="row">
                             <div class="col-sm-6 col-lg-3 p-3">
                                 <figure class="team-img">
-                                    <img src="assets/img/educator-img8.png" alt="">
+                                    <img src="assets/orimi/person.jpg" alt="">
                                 </figure>
                                 <div class="team-content text-center">
                                     <h4>
@@ -178,7 +178,7 @@ include 'header.php';
                             </div>
                             <div class="col-sm-6 col-lg-3 p-3">
                                 <figure class="team-img">
-                                    <img src="assets/img/educator-img11.png" alt="">
+                                    <img src="assets/orimi/person.jpg" alt="">
                                 </figure>
                                 <div class="team-content text-center">
                                     <h4>
@@ -210,7 +210,7 @@ include 'header.php';
                             </div>
                             <div class="col-sm-6 col-lg-3 p-3">
                                 <figure class="team-img">
-                                    <img src="assets/img/educator-img9.png" alt="">
+                                    <img src="assets/orimi/person.jpg" alt="">
                                 </figure>
                                 <div class="team-content text-center">
                                     <h4>
@@ -242,7 +242,7 @@ include 'header.php';
                             </div>
                             <div class="col-sm-6 col-lg-3 p-3">
                                 <figure class="team-img">
-                                    <img src="assets/img/educator-img10.png" alt="">
+                                    <img src="assets/orimi/person.jpg" alt="">
                                 </figure>
                                 <div class="team-content text-center">
                                     <h4>

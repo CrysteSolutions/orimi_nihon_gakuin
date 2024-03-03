@@ -23,7 +23,7 @@ include 'header.php';
                             <div class="col-sm-6 col-lg-4 pe-3 ps-3 pt-4 pt-lg-0 inner-course">
                                 <article class="post">
                                     <figure class="feature-image">
-                                        <img src="assets/img/educator-img30.jpg" alt="">
+                                        <img src="assets/orimi/corporate-training02.jpg" alt="">
                                         <a href="course-detail.html" class="bookmark-icon">
                                             <i aria-hidden="true" class="far fa-bookmark"></i>
                                         </a>
@@ -45,7 +45,7 @@ include 'header.php';
                                         </div>
                                         <div class="author-content">
                                             <figure class="author-img">
-                                                <img src="assets/img/educator-img21.jpg" alt="">
+                                                <img src="assets/orimi/person.jpg" alt="">
                                             </figure>
                                             <h6 class="author-name">Prof. Sammy James</h6>
                                         </div>
@@ -65,7 +65,7 @@ include 'header.php';
                             <div class="col-sm-6 col-lg-4 pe-3 ps-3 pt-4 pt-lg-0 inner-course">
                                 <article class="post">
                                     <figure class="feature-image">
-                                        <img src="assets/img/educator-img29.jpg" alt="">
+                                        <img src="assets/orimi/20211013_04.jpg" alt="">
                                         <a href="course-detail.html" class="bookmark-icon">
                                             <i aria-hidden="true" class="far fa-bookmark"></i>
                                         </a>
@@ -87,7 +87,7 @@ include 'header.php';
                                         </div>
                                         <div class="author-content">
                                             <figure class="author-img">
-                                                <img src="assets/img/educator-img22.jpg" alt="">
+                                                <img src="assets/orimi/person.jpg" alt="">
                                             </figure>
                                             <h6 class="author-name">Prof. Alison White</h6>
                                         </div>
@@ -107,7 +107,7 @@ include 'header.php';
                             <div class="col-sm-6 col-lg-4 pe-3 ps-3 pt-4 pt-lg-0 inner-course">
                                 <article class="post">
                                     <figure class="feature-image">
-                                        <img src="assets/img/educator-img31.jpg" alt="">
+                                        <img src="assets/orimi/bg_arc.jpg" alt="">
                                         <a href="course-detail.html" class="bookmark-icon">
                                             <i aria-hidden="true" class="far fa-bookmark"></i>
                                         </a>
@@ -129,7 +129,7 @@ include 'header.php';
                                         </div>
                                         <div class="author-content">
                                             <figure class="author-img">
-                                                <img src="assets/img/educator-img25.jpg" alt="">
+                                                <img src="assets/orimi/person.jpg" alt="">
                                             </figure>
                                             <h6 class="author-name">Prof. George Hobbs</h6>
                                         </div>
@@ -149,7 +149,7 @@ include 'header.php';
                             <div class="col-sm-6 col-lg-4 pe-3 ps-3 pt-4 pt-lg-0 inner-course">
                                 <article class="post">
                                     <figure class="feature-image">
-                                        <img src="assets/img/educator-img12.jpg" alt="">
+                                        <img src="assets/orimi/pexels-stanley-morales-1454360.jpg" alt="Image">
                                         <a href="course-detail.html" class="bookmark-icon">
                                             <i aria-hidden="true" class="far fa-bookmark"></i>
                                         </a>
@@ -171,7 +171,7 @@ include 'header.php';
                                         </div>
                                         <div class="author-content">
                                             <figure class="author-img">
-                                                <img src="assets/img/educator-img26.jpg" alt="">
+                                                <img src="assets/orimi/person.jpg" alt="">
                                             </figure>
                                             <h6 class="author-name">Prof. Alita Smith</h6>
                                         </div>
@@ -191,7 +191,7 @@ include 'header.php';
                             <div class="col-sm-6 col-lg-4 pe-3 ps-3 pt-4 pt-lg-0 inner-course">
                                 <article class="post">
                                     <figure class="feature-image">
-                                        <img src="assets/img/educator-img13.jpg" alt="">
+                                        <img src="assets/orimi/cf516b60b24f6bf7972417794fca16d9.jpg" alt="">
                                         <a href="course-detail.html" class="bookmark-icon">
                                             <i aria-hidden="true" class="far fa-bookmark"></i>
                                         </a>
@@ -213,7 +213,7 @@ include 'header.php';
                                         </div>
                                         <div class="author-content">
                                             <figure class="author-img">
-                                                <img src="assets/img/educator-img23.jpg" alt="">
+                                                <img src="assets/orimi/person.jpg" alt="">
                                             </figure>
                                             <h6 class="author-name">Prof. William Howard</h6>
                                         </div>
@@ -233,7 +233,7 @@ include 'header.php';
                             <div class="col-sm-6 col-lg-4 pe-3 ps-3 pt-4 pt-lg-0 inner-course">
                                 <article class="post">
                                     <figure class="feature-image">
-                                        <img src="assets/img/educator-img14.jpg" alt="">
+                                        <img src="assets/orimi/fig_program01.jpg" alt="">
                                         <a href="course-detail.html" class="bookmark-icon">
                                             <i aria-hidden="true" class="far fa-bookmark"></i>
                                         </a>
@@ -255,7 +255,7 @@ include 'header.php';
                                         </div>
                                         <div class="author-content">
                                             <figure class="author-img">
-                                                <img src="assets/img/educator-img22.jpg" alt="">
+                                                <img src="assets/orimi/person.jpg" alt="">
                                             </figure>
                                             <h6 class="author-name">Prof. Nina Housten</h6>
                                         </div>
