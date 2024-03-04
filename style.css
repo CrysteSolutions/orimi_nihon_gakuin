@@ -2461,8 +2461,8 @@ input[type=submit]:focus {
 
 @media screen and (min-width: 992px) {
   .fixed-header {
-    background-color: #ffffff;
-    -webkit-box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+    background-color: #41246D;
+    -webkit-box-shadow: 0 -3px 10px rgb(255, 255, 255);
     -moz-box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
     -o-box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
@@ -2482,7 +2482,7 @@ input[type=submit]:focus {
   }
 }
 .fixed-header .main-navigation .navigation > ul > li > a {
-  color: #111111;
+  color: #ffffff;
   padding: 22px 0;
 }
 .fixed-header .main-navigation .navigation > ul > li > a:before {
@@ -3141,7 +3141,7 @@ input[type=submit]:focus {
 >>> Home progress section  
 ----------------------------------------------------------------*/
 .home-progress-section {
-  background-image: url(assets/img/educator-img12.jpg);
+  background-image: url(assets/orimi/pexels-emily-ranquist-1205651.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3515,11 +3515,12 @@ input[type=submit]:focus {
   }
 }
 .home-fact-section .fact-right-inner-wrap .fact-inner-box .top-right-image {
-  background-image: url(assets/img/educator-img27.jpg);
+  background-image: url(assets/orimi/pexels-emily-ranquist-1205651.jpg
+  );
   background-position: center right;
 }
 .home-fact-section .fact-right-inner-wrap .fact-inner-box .bottom-left-image {
-  background-image: url(assets/img/educator-img28.jpg);
+  background-image: url(assets/orimi/pexels-george-pak-7973205.jpg);
   background-position: center left;
 }
 .home-fact-section .fact-right-inner-wrap .fact-inner-box .bottom-right-content {

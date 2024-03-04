@@ -5,7 +5,7 @@ include 'header.php';
         <main id="content" class="site-main">
             <!-- Inner Banner html start-->
             <section class="inner-banner-wrap">
-                <div class="inner-baner-container" style="background-image: url(assets/img/educator-img12.jpg);">
+                <div class="inner-baner-container" style="background-image: url(assets/orimi/1658262054192.png);">
                     <div class="container">
                         <div class="inner-banner-content">
                             <h1 class="inner-title">Latest Announsments</h1>
@@ -23,7 +23,7 @@ include 'header.php';
                                 <div class="inner-blog-wrap">
                                     <article class="post">
                                         <figure class="feature-image">
-                                            <img src="assets/img/educator-img12.jpg" alt="">
+                                            <img src="assets/orimi/IMG_0764-1-1024x683.jpg"  alt="">
                                             <span class="cat-meta">
                                                 <a href="single-post.html">EDUCATION</a>
                                             </span>
@@ -39,7 +39,7 @@ include 'header.php';
                                     </article>
                                     <article class="post">
                                         <figure class="feature-image">
-                                            <img src="assets/img/educator-img14.jpg" alt="">
+                                            <img src="assets/orimi/library.jpg" alt="">
                                             <span class="cat-meta">
                                                 <a href="single-post.html">SEMINAR</a>
                                             </span>
@@ -55,7 +55,7 @@ include 'header.php';
                                     </article>
                                     <article class="post">
                                         <figure class="feature-image">
-                                            <img src="assets/img/educator-img13.jpg" alt="">
+                                            <img src="assets/orimi/DSC_1412.jpg" alt="">
                                             <span class="cat-meta">
                                                 <a href="single-post.html">EDUCATION</a>
                                             </span>
@@ -71,7 +71,7 @@ include 'header.php';
                                     </article>
                                     <article class="post">
                                         <figure class="feature-image">
-                                            <img src="assets/img/educator-img15.jpg" alt="">
+                                            <img src="assets/orimi/cf516b60b24f6bf7972417794fca16d9.jpg" alt="">
                                             <span class="cat-meta">
                                                 <a href="single-post.html">SEMINAR</a>
                                             </span>
@@ -95,7 +95,7 @@ include 'header.php';
                                             <div class="profile">
                                                 <figure class="avatar">
                                                     <a href="single-blog.html">
-                                                        <img src="assets/img/educator-img25.jpg" alt="">
+                                                        <img src="assets/orimi/person.jpg" alt="">
                                                     </a>
                                                 </figure>
                                                 <div class="text-content">
@@ -147,7 +147,7 @@ include 'header.php';
                                         <ul>
                                             <li>
                                                 <figure class="post-thumb">
-                                                    <a href="single-blog.html"><img src="assets/img/educator-img15-500px.jpg" alt=""></a>
+                                                    <a href="single-blog.html"><img src="assets/orimi/cf516b60b24f6bf7972417794fca16d9.jpg" alt=""></a>
                                                 </figure>
                                                 <div class="post-content">
                                                     <h6>
@@ -165,7 +165,7 @@ include 'header.php';
                                             </li>
                                             <li>
                                                 <figure class="post-thumb">
-                                                    <a href="single-blog.html"><img src="assets/img/educator-img13-500px.jpg" alt=""></a>
+                                                    <a href="single-blog.html"><img src="assets/orimi/DSC_1412.jpg" alt=""></a>
                                                 </figure>
                                                 <div class="post-content">
                                                     <h6>
@@ -183,7 +183,7 @@ include 'header.php';
                                             </li>
                                             <li>
                                                 <figure class="post-thumb">
-                                                    <a href="single-blog.html"><img src="assets/img/educator-img14-500px.jpg" alt=""></a>
+                                                    <a href="single-blog.html"><img src="assets/orimi/library.jpg" alt=""></a>
                                                 </figure>
                                                 <div class="post-content">
                                                     <h6>
@@ -201,7 +201,7 @@ include 'header.php';
                                             </li>
                                             <li>
                                                 <figure class="post-thumb">
-                                                    <a href="single-blog.html"><img src="assets/img/educator-img12-500px.jpg" alt=""></a>
+                                                    <a href="single-blog.html"><img src="assets/orimi/IMG_0764-1-1024x683.jpg" alt=""></a>
                                                 </figure>
                                                 <div class="post-content">
                                                     <h6>
