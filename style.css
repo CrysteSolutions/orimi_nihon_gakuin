@@ -1276,7 +1276,7 @@ input[type=submit]:focus {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 50px;
+  width: 300px;
 }
 
 .rating-start-wrap {
@@ -3141,7 +3141,7 @@ input[type=submit]:focus {
 >>> Home progress section  
 ----------------------------------------------------------------*/
 .home-progress-section {
-  background-image: url(assets/orimi/pexels-emily-ranquist-1205651.jpg);
+  background-image: url(assets/img/educator-img12.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
