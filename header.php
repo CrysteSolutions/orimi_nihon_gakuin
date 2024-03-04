@@ -1,17 +1,54 @@
-
-
-
-
 <?php
 // Get the current page filename without extension
 $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 ?>
+
+
+<?php
+
+include 'dashboard/asset/conn.php'; // Include your conn.php file
+
+
+// Get the current page filename without extension
+$current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
+
+// Fetch data from the database
+$query = "SELECT * FROM `aboutsite` LIMIT 1";
+$result = Database::search($query);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $phone_number = $row['tpNo'];
+    $email = $row['email'];
+    $location = $row['location'];
+    $whatsapp = $row['whatsapp'];
+    $facebook = $row['facebook'];
+    $tweeter = $row['tweeter'];
+    $youtube = $row['youtube'];
+    $instagram = $row['instagram'];
+    $linkedin = $row['linkedin'];
+    $activeStudents = $row['activeStudents'];
+    $facultyCourses = $row['facultyCourses'];
+    $aboutParagraph = $row['aboutParagraph'];
+    $aboutVideo = $row['aboutVideo'];
+  
+} else {
+    // Handle the error as needed
+    $phone_number = ''; // Set default values or handle errors accordingly
+    $email = '';
+    $location = '';
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="description" content="Embark on your Japanese journey with Orimi Sasaki Nihon Gakuin! We specialize in student visas for Sri Lankan students and job visas for those aspiring to work in Japan. Let us simplify your path to education and career success in Japan. Start your adventure with us today" />
     <meta name="keywords" content="orimi nihon gakuin, orimi sasaki, japanese visa, visa agency, eduction visa, orimi agency, japanese visa agency, srilanka visa agency" />
     <!-- favicon -->
@@ -58,13 +95,13 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                             <div class="header-contact-info">
                                 <ul>
                                     <li>
-                                        <a href="tel:+01-977-2599-12"><i class="fas fa-phone-alt"></i> +01 (977) 2599 12</a>
+                                        <a href="tel:+01-977-2599-12"><i class="fas fa-phone-alt"></i> +<?php echo $phone_number; ?></a>
                                     </li>
                                     <li>
-                                        <a href="/cdn-cgi/l/email-protection#5c3f33312c3d32251c3833313d3532723f3331"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="3b5854564b5a55427b5f54565a525515585456">[email&#160;protected]</span></a>
+                                        <a href="/cdn-cgi/l/email-protection#5c3f33312c3d32251c3833313d3532723f3331"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="3b5854564b5a55427b5f54565a525515585456"><?php echo $email; ?></span></a>
                                     </li>
                                     <li>
-                                        <i class="fas fa-map-marker-alt"></i> 3146 Koontz Lane, California
+                                        <i class="fas fa-map-marker-alt"></i> <?php echo $location; ?>
                                     </li>
                                 </ul>
                             </div>
@@ -73,27 +110,27 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                             <div class="header-social social-links">
                                 <ul>
                                     <li>
-                                        <a href="https://www.facebook.com" target="_blank">
+                                        <a href="<?php echo $facebook; ?>" target="_blank">
                                             <i class="fab fa-facebook" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.twitter.com" target="_blank">
+                                        <a href="<?php echo $tweeter; ?>" target="_blank">
                                             <i class="fab fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.youtube.com" target="_blank">
+                                        <a href="<?php echo $youtube; ?>" target="_blank">
                                             <i class="fab fa-youtube" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com" target="_blank">
+                                        <a href="<?php echo $instagram; ?>" target="_blank">
                                             <i class="fab fa-instagram" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.linkedin.com" target="_blank">
+                                        <a href="<?php echo $linkedin; ?>" target="_blank">
                                             <i class="fab fa-linkedin" aria-hidden="true"></i>
                                         </a>
                                     </li>

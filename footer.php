@@ -34,22 +34,22 @@
                             <div class="footer-social-links">
                                 <ul>
                                     <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
+                                        <a href="<?php echo $facebook; ?>" target="_blank">
                                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.twitter.com/" target="_blank">
+                                        <a href="<?php echo $tweeter; ?>" target="_blank">
                                             <i class="fab fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
+                                        <a href="<?php echo $instagram; ?>" target="_blank">
                                             <i class="fab fa-instagram" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.youtube.com/" target="_blank">
+                                        <a href="<?php echo $youtube; ?>" target="_blank">
                                             <i class="fab fa-youtube" aria-hidden="true"></i>
                                         </a>
                                     </li>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <aside class="widget widget_text school-time">
-                                <h5 class="widget-title">School Hours</h5>
+                                <h5 class="widget-title">Language Class TimeTable</h5>
                                 <span>
                                     <i aria-hidden="true" class="far fa-clock"></i>
                                     8 AM - 5 PM , Monday - Saturday
