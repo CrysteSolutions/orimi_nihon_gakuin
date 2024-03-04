@@ -81,7 +81,8 @@ if ($result) {
     <!-- pre loader-->
     <div id="siteLoader" class="site-loader ">
         <div class="preloader-content">
-            <img src="assets/img/loader1.gif" alt="">
+            <img src="assets/img/dload7.gif" alt="" width="200px" height="200px">
+            <p>POWERED BY CRYSTE SOFTWARE</p>
         </div>
         <!-- /pre loader-->
     </div>
