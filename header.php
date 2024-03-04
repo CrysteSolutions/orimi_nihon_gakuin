@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 // Get the current page filename without extension
 $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
@@ -46,7 +50,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
         <header class="site-header site-header-transparent">
             <!-- header html start -->
             <div class="top-header">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-8 d-none d-lg-block">
                             <div class="header-contact-info">
@@ -108,7 +112,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                 </div>
             </div>
             <div class="bottom-header" id="masthead">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="hb-group d-flex align-items-center justify-content-between">
                         <div class="site-identity col-lg-3">
                             <p class="site-title">

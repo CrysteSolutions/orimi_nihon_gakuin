@@ -540,11 +540,11 @@ include 'header.php';
                             <div class="client-content left-content">
                                 <div class="pattern-overlay circle-patten"></div>
                                 <p class="client-review">
-                                    “Per sed, mattis. Integer viverra euismod maecenas incidunt, phasellus consequatur aliquam nihil temporibus in assumenda? Aute praesentium fugiat. Perspiciatis, ultrices deserunt convallis, eius at non.”
-                                </p>
+                                    <!-- “Per sed, mattis. Integer viverra euismod maecenas incidunt, phasellus consequatur aliquam nihil temporibus in assumenda? Aute praesentium fugiat. Perspiciatis, ultrices deserunt convallis, eius at non.”
+                                 --> </p>
                                 <div class="author-content">
                                     <div class="author-info">
-                                        <h5 class="author-name">Jenny Wilson</h5>
+                                        <h5 class="author-name">Student</h5>
                                         <span class="author-title">SCIENCE STUDENT</span>
                                     </div>
                                     <figure class="author-img">
@@ -556,12 +556,12 @@ include 'header.php';
                         <div class="col-md-6">
                             <div class="client-content right-content">
                                 <div class="pattern-overlay circle-patten"></div>
-                                <p class="client-review">
+                                <!-- <p class="client-review">
                                     “Per sed, mattis. Integer viverra euismod maecenas incidunt, phasellus consequatur aliquam nihil temporibus in assumenda? Aute praesentium fugiat. Perspiciatis, ultrices deserunt convallis, eius at non.”
-                                </p>
+                                 -->  </p>
                                 <div class="author-content">
                                     <div class="author-info">
-                                        <h5 class="author-name">William Wright</h5>
+                                        <h5 class="author-name">Student</h5>
                                         <span class="author-title">ART STUDENT</span>
                                     </div>
                                     <figure class="author-img">

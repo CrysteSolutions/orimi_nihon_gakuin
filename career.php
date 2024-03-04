@@ -8,7 +8,7 @@ include 'header.php';
                 <div class="inner-baner-container" style="background-image: url(assets/orimi/Career-Month-1_Drupal-1200x799.png);">
                     <div class="container">
                         <div class="inner-banner-content">
-                            <h1 class="inner-title">Career</h1>
+                            <h1 class="inner-title">Job Visa </h1>
                         </div>
                     </div>
                 </div>
