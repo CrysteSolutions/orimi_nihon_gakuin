@@ -96,7 +96,7 @@ if ($result) {
                             <div class="header-contact-info">
                                 <ul>
                                     <li>
-                                        <a href="tel:+01-977-2599-12"><i class="fas fa-phone-alt"></i> +<?php echo $phone_number; ?></a>
+                                        <a href="tel:+<?php echo $phone_number; ?>"><i class="fas fa-phone-alt"></i> +<?php echo $phone_number; ?></a>
                                     </li>
                                     <li>
                                         <a href="/cdn-cgi/l/email-protection#5c3f33312c3d32251c3833313d3532723f3331"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="3b5854564b5a55427b5f54565a525515585456"><?php echo $email; ?></span></a>
