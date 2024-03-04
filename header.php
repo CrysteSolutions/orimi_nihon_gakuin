@@ -13,7 +13,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Embark on your Japanese journey with Orimi Sasaki Nihon Gakuin! We specialize in student visas for Sri Lankan students and job visas for those aspiring to work in Japan. Let us simplify your path to education and career success in Japan. Start your adventure with us today" />
-    <meta name="keywords" content=" " />
+    <meta name="keywords" content="orimi nihon gakuin, orimi sasaki, japanese visa, visa agency, eduction visa, orimi agency, japanese visa agency, srilanka visa agency" />
     <!-- favicon -->
     <link rel="icon" type="image/png" href="assets/img/educator-fabicon-300x300.png">
     <!-- Bootstrap CSS -->
