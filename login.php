@@ -1,6 +1,10 @@
-<?php
+<?php 
+include 'header.php';
+
+
 session_start(); 
-require ("dashboard/asset/conn.php");
+?>
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get username or email and password from the form
@@ -40,9 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php 
-include 'header.php';
-?>
+
 
 
 <body class="home">
@@ -54,6 +56,8 @@ include 'header.php';
         <input type="submit" value="Login">
         <br><br> 
         <a href="register.php">click here to Register</a>
+        <lablel> Forgot Password? </label>
+        <a href="resetPass.php">click here to reset</a>
         </form>
                         
     <!-- JavaScript -->
