@@ -17,7 +17,7 @@ require 'dashboard/asset/conn.php';
             <option value="moderator">moderator</option> 
             <br><br> <input type="submit" value="Register">
         <br><br> 
-        <a href="login.php">click here to login</a>
+        <a href="login.php">click here to login</a> 
         </form>
         
         

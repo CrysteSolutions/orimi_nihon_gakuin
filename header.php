@@ -6,8 +6,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 
 <?php
 
-include 'dashboard/asset/conn.php'; // Include your conn.php file
-
+include_once 'dashboard/asset/conn.php'; // Include your conn.php file
 
 // Get the current page filename without extension
 $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);

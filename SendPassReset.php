@@ -1,59 +1,55 @@
 <?php
-session_start(); 
-require ("dashboard/asset/conn.php");
+include 'header.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get username or email and password from the form
-    $usernameOrEmail = $_POST['username'];
-    $password = $_POST['password'];
+    $usernameOrEmail = $_POST['usernameOrEmail'];
 
-    // Use a prepared statement to prevent SQL injection
-    $stmt = Database::prepare("SELECT * FROM `user` WHERE `userName` = ? OR `userEmail` = ?");
-    $stmt->bind_param("ss", $usernameOrEmail, $usernameOrEmail);
+    // Validate and sanitize user input
+    $usernameOrEmail = filter_var($usernameOrEmail, FILTER_SANITIZE_STRING);
+
+    // Check if the email exists in the database
+    $stmt = $pdo->prepare("SELECT * FROM `user` WHERE `userEmail` = :email");
+    $stmt->bindParam(':email', $usernameOrEmail, PDO::PARAM_STR);
     $stmt->execute();
 
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row_data = $result->fetch_assoc();
-
-        // Verify the password
-        if (password_verify($password, $row_data['userPassword'])) {
-            // Set session variables
-            $_SESSION['username'] = $row_data['userName'];
-            $_SESSION['accessType'] = $row_data['userAccessType'];
-            $_SESSION['userID'] = $row_data['userID'];
-
-            // Redirect to the appropriate page based on access type
-            header('Location: dashboard/dashboard.php');
-            exit(); // Add this to stop further execution after the redirection
-        } else {
-            // Incorrect password
-            echo '<script>alert("Password incorrect");</script>';
-        }
+    if ($stmt->rowCount() > 0) {
+        // Email exists in the database, create a session key
+        session_start();
+        $_SESSION['resetEmail'] = $usernameOrEmail;
+        header("Location: passwordReset.php");
+        exit();
     } else {
-        // User not found
-        echo '<script>alert("User not found");</script>';
+        echo '<script>alert("Email not found in the database. Please check your input.");</script>';
     }
-
-    $stmt->close();
-}
+}  exit();
 ?>
 
-<?php 
-include 'header.php';
-?>
+  <style>
+        .strength-status {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .weak {
+            color: red;
+        }
+
+        .normal {
+            color: orange;
+        }
+
+        .strong {
+            color: green;
+        }
+    </style>
 
 
 <body class="home">
-    <form action="login.php" method="post">
-        <label> user name or Email</label>
-        <input type="text" name="username" id="username" required><br> <br>
-        <label> Password</label>
-        <input type="password" name="password" id="password" required><br> <br>
-        <input type="submit" value="Login">
-        <br><br> 
-        <p> Do not have an account?  <a href="register.php">click here to Register</a> </P><br>  <p> Fogot Password ?   <a href="SendPassReset.php">click here to reset</a> </p>
+    <form action="SendPassReset.php" method="post">
+        <label> Enter your user name or Email</label>
+        <input type="text" name="usernameOrEmail" id="usernameusernameOrEmail" required><br> 
+        <input type="submit" value="Send an Email">  <br> <br> <br> 
+        <a href="Login.php">Back To Login</a>
         </form>
                         
     <!-- JavaScript -->
@@ -79,6 +75,8 @@ include 'header.php';
         if (localStorage.getItem("theme-color") === "light") {
           document.getElementById("light--to-dark-button")?.classList.remove("dark--mode");
         } 
+       
+
       </script>
 </body>
 
