@@ -88,9 +88,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'crystesoftware@gmail.com';
-            $mail->Password   = 'Hashcat@19180000';
+            $mail->Password   = 'mapbiwycfgnxbcle';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
+
+
+
+            $mail->Timeout = 60; // 60 seconds
+            $mail->SMTPDebug = 2; // Enable verbose debug output
+
+
 
             // Recipients
             $mail->setFrom('user@mail.com', 'Your Name');
