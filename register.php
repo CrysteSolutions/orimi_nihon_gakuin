@@ -1,6 +1,5 @@
 <?php 
 include 'header.php';
-require 'dashboard/asset/conn.php';
 ?>
 
 <body class="home">

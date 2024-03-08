@@ -1,12 +1,13 @@
 <?php
 include 'header.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use vendor\PHPMailer\PHPMailer\src\PHPMailer;
+use vendor\PHPMailer\PHPMailer\src\Exception;
 
 require 'vendor/phpmailer/phpmailer/src/Exception.php';
 require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+
 
 // Function to generate a random 8-digit code
 function generateRandomCode() {
@@ -93,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port       = 587;
 
             // Recipients
-            $mail->setFrom('user@mail.com', 'Your Name');
+            $mail->setFrom('eshan@gmail.com', 'Your Name');
             $mail->addAddress($user['userEmail'], $user['userName']); // User's email and name
 
             // Content
@@ -107,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } catch (Exception $e) {
             echo "Mailer Error: {$mail->ErrorInfo}";
-            
+            header('Location: login.php');
         }
 
         $updateStmt->close(); // Close the statement here
