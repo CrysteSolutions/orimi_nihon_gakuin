@@ -37,5 +37,6 @@ class Database {
         Database::setUpConnection();
         return Database::$connection->prepare($sql);
     }
+    
 }
 ?>

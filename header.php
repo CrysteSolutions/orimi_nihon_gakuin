@@ -1,13 +1,10 @@
-<?php
-// Get the current page filename without extension
-$current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
-?>
-
 
 <?php
 
+session_start();
 include_once 'dashboard/asset/conn.php'; // Include your conn.php file
-
+// Start output buffering
+ob_start();
 // Get the current page filename without extension
 $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 
@@ -19,7 +16,7 @@ if ($result) {
     $row = $result->fetch_assoc();
     $phone_number = $row['tpNo'];
     $email = $row['email'];
-    $location = $row['location'];
+    $location1 = $row['location'];
     $whatsapp = $row['whatsapp'];
     $facebook = $row['facebook'];
     $tweeter = $row['tweeter'];
@@ -35,10 +32,10 @@ if ($result) {
     // Handle the error as needed
     $phone_number = ''; // Set default values or handle errors accordingly
     $email = '';
-    $location = '';
+    $location1 = '';
 }
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -74,6 +71,27 @@ if ($result) {
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Orimi Sasaki Nihon Gakuin</title>
+    
+  <style>
+        .strength-status {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .weak {
+            color: red;
+        }
+
+        .normal {
+            color: orange;
+        }
+
+        .strong {
+            color: green;
+        }
+    </style>
+
+
 </head>
 
 <body class="home">
@@ -84,6 +102,7 @@ if ($result) {
         </div>
         <!-- /pre loader-->
     </div>
+  
     <div id="page" class="full-page">
         <header class="site-header site-header-transparent">
             <!-- header html start -->
@@ -100,7 +119,7 @@ if ($result) {
                                         <a href="/cdn-cgi/l/email-protection#5c3f33312c3d32251c3833313d3532723f3331"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="3b5854564b5a55427b5f54565a525515585456"><?php echo $email; ?></span></a>
                                     </li>
                                     <li>
-                                        <i class="fas fa-map-marker-alt"></i> <?php echo $location; ?>
+                                        <i class="fas fa-map-marker-alt"></i> <?php echo $location1; ?>
                                     </li>
                                 </ul>
                             </div>

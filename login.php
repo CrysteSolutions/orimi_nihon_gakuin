@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+
 require ("dashboard/asset/conn.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

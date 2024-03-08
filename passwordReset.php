@@ -4,7 +4,7 @@ include 'header.php';
 ?>
 
 <?php
-session_start();
+
 
 // Check if the resetEmail session key is set
 if (isset($_SESSION['resetEmail'])) {
