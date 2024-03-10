@@ -1,0 +1,33 @@
+const generateRegistrationEmail = (fname, uuid, qrCodeImage) => {
+  console.log(qrCodeImage);
+  return `
+    <html>
+      <head>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+          }
+          h2 {
+            color: #3498db;
+          }
+          p {
+            color: #555;
+          }
+        </style>
+      </head>
+      <body>
+        <h2>Registration Confirmation</h2>
+        <p>Hi<h3>${fname}</h3></p>
+        <p>Your registration was successful!</p>
+        <p>Your registration ID is: <strong>${uuid}</strong> </p>     
+         <img src="cid:qrCodeImage" alt="QR Code" style="max-width: 100%;" />
+        <p>Thank you for registering with us!</p>
+      </body>
+    </html>
+  `;
+};
+
+module.exports = {
+  generateRegistrationEmail,
+};
