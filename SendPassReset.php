@@ -63,14 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Email exists in the database, create a session key
         $user = $result->fetch_assoc();
-
+        $currentTime = date("Y-m-d H:i:s");
         $_SESSION['resetEmail'] = $user['userEmail'];
-        
+        $_SESSION['resetTime'] =  $currentTime;
 
 
         // Check if a recent reset token has been generated within the last 15 minutes
-        $currentTime = date("Y-m-d H:i:s");
-        $_SESSION['resetTime'] =  $currentTime;
+       
+       
         $recentResetStmt =1;
         // $recentResetStmt = Database::prepare("SELECT * FROM `user` WHERE (`userEmail` = ? OR `userName` = ?) AND `Token_Generated_Time` >= DATE_SUB(?, INTERVAL 15 MINUTE)");
         // $recentResetStmt->bind_param('sss', $usernameOrEmail, $usernameOrEmail, $currentTime);
