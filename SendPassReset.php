@@ -64,13 +64,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Email exists in the database, create a session key
         $user = $result->fetch_assoc();
 
+        $_SESSION['resetEmail'] = $user['userEmail'];
+        
+
+
         // Check if a recent reset token has been generated within the last 15 minutes
         $currentTime = date("Y-m-d H:i:s");
-        $recentResetStmt = Database::prepare("SELECT * FROM `user` WHERE (`userEmail` = ? OR `userName` = ?) AND `Token_Generated_Time` >= DATE_SUB(?, INTERVAL 15 MINUTE)");
-        $recentResetStmt->bind_param('sss', $usernameOrEmail, $usernameOrEmail, $currentTime);
-        $recentResetStmt->execute();
-
-        $recentResetResult = $recentResetStmt->get_result();
+        $_SESSION['resetTime'] =  $currentTime;
+        $recentResetStmt =1;
+        // $recentResetStmt = Database::prepare("SELECT * FROM `user` WHERE (`userEmail` = ? OR `userName` = ?) AND `Token_Generated_Time` >= DATE_SUB(?, INTERVAL 15 MINUTE)");
+        // $recentResetStmt->bind_param('sss', $usernameOrEmail, $usernameOrEmail, $currentTime);
+        // $recentResetStmt->execute();
+        $recentResetResult =1;
+        // $recentResetResult = $recentResetStmt->get_result();
 
         if ($recentResetResult->num_rows > 0) {
             // Display a popup informing the user about the recent request
@@ -83,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $updateStmt = Database::prepare("UPDATE `user` SET `resetToken` = ?, `Token_Generated_Time` = ? WHERE `userEmail` = ? OR `userName` = ?");
             $updateStmt->bind_param('ssss', $resetToken, $currentTime, $usernameOrEmail, $usernameOrEmail);
             $updateStmt->execute();
+            header("Location: passwordReset.php?userEmail=" . $user['userEmail']);
 
             // Send email with reset code using PHPMailer
             $mail = new PHPMailer(true);
@@ -111,6 +118,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Code for OrimiSasaki.com';
             $mail->Body    = '
+
+            
             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -342,6 +351,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+            
+            
+           
             
             ';
             // Your password reset code For orimiSasaki.com is: ' . $resetToken . '. This code is valid for 15 minutes.

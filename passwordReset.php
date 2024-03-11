@@ -1,23 +1,26 @@
 <?php
 include 'header.php';
 
-?>
-
-<?php
-
-
 // Check if the resetEmail session key is set
-if (isset($_SESSION['resetEmail'])) {
+if (isset($_SESSION['c'])) {
     $resetEmail = $_SESSION['resetEmail'];
-    // Continue with the password reset process
-    // ...
-} else {
-    // Redirect to the login page or handle the case where the session key is not set
-    header("Location: login.php");
-    exit();
-}
-?>
 
+  
+    if (isset($_SESSION['resetTime'])) {
+       
+        $resetTime = $_SESSION['resetTime'];
+
+        // Check if the reset key is valid within the 15-minute timeframe
+        $currentTime = time(); // Current time in seconds
+        $validTime = 15 * 60; // 15 minutes in seconds
+
+        if (($currentTime - $resetTime) <= $validTime) {
+            // Continue with the password reset process
+            // ...
+
+          
+         
+       ?>
   <style>
         .strength-status {
             font-weight: bold;
@@ -78,3 +81,27 @@ if (isset($_SESSION['resetEmail'])) {
 </body>
 
 </html>
+
+
+<?php 
+ } else {
+    // The reset key has expired, inform the user and redirect
+    echo '<script>alert("The password reset key has expired. Please request a new key.");</script>';
+    header("Location: login.php");
+    exit();
+}
+} else {
+// The required session keys are not set, inform the user and redirect
+echo '<script>alert("Invalid request. Please request a password reset key first.");</script>';
+header("Location: login.php");
+exit();
+}
+} else {
+// Redirect to the login page or handle the case where the session key is not set
+header("Location: login.php");
+exit();
+}
+?>
+
+
+?>
