@@ -190,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td align="center" class="esd-block-text es-p10t es-p10b">
-                                                                                        <p>&nbsp;Here is the Reset code ' . $resetToken . '. This code will valid only for 15 minutes. Forgot your password? No problem - it happens to everyone!</p>
+                                                                                        <p>&nbsp;Here is the Reset code ' . $resetToken . '. This code will valid only for 15 minutes (Requested time :-' . $currentTime . ' ). Forgot your password? No problem - it happens to everyone!</p>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
