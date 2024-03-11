@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $resetToken = generateRandomCode();
 
         // Update the user record with the reset token and time
-        $updateStmt = Database::prepare("UPDATE `user` SET `resetToken` = ?, `Reet_Generated_Time` = ? WHERE `userEmail` = ?");
+        $updateStmt = Database::prepare("UPDATE `user` SET `resetToken` = ?, `Token_Generated_Time` = ? WHERE `userEmail` = ?");
         $currentTime = date("Y-m-d H:i:s");
 
         $updateStmt->bind_param('sss', $resetToken, $currentTime, $usernameOrEmail);
