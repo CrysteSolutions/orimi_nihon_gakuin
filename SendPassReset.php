@@ -40,11 +40,9 @@ function generateRandomCode() {
 </html>
 
 
-<?php 
+<?php
 
 include "footer.php";
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usernameOrEmail = $_POST['usernameOrEmail'];
@@ -63,35 +61,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-
-
-
         // Email exists in the database, create a session key
         $user = $result->fetch_assoc();
 
-        // Generate a random 8-digit code
-        $resetToken = generateRandomCode();
-
-        // Update the user record with the reset token and time
-        $updateStmt = Database::prepare("UPDATE `user` SET `resetToken` = ?, `Token_Generated_Time` = ? WHERE `userEmail` = ?");
+        // Check if a recent reset token has been generated within the last 15 minutes
         $currentTime = date("Y-m-d H:i:s");
+        $recentResetStmt = Database::prepare("SELECT * FROM `user` WHERE (`userEmail` = ? OR `userName` = ?) AND `Token_Generated_Time` >= DATE_SUB(?, INTERVAL 15 MINUTE)");
+        $recentResetStmt->bind_param('sss', $usernameOrEmail, $usernameOrEmail, $currentTime);
+        $recentResetStmt->execute();
 
-        $updateStmt->bind_param('sss', $resetToken, $currentTime, $usernameOrEmail);
-        $updateStmt->execute();
+        $recentResetResult = $recentResetStmt->get_result();
 
-        // Send email with reset code using PHPMailer
-        $mail = new PHPMailer(true);
+        if ($recentResetResult->num_rows > 0) {
+            // Display a popup informing the user about the recent request
+            echo '<script>alert("You have already requested a password reset code within the last 15 minutes. Please check your email. Requested time: ' . $user['Token_Generated_Time'] . '");</script>';
+        } else {
+            // Generate a random 8-digit code
+            $resetToken = generateRandomCode();
 
-        try {
-            // Server settings
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'crystesoftware@gmail.com';
-            $mail->Password   = 'lusl hikk iuac pynx';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
+            // Update the user record with the reset token and time
+            $updateStmt = Database::prepare("UPDATE `user` SET `resetToken` = ?, `Token_Generated_Time` = ? WHERE `userEmail` = ? OR `userName` = ?");
+            $updateStmt->bind_param('ssss', $resetToken, $currentTime, $usernameOrEmail, $usernameOrEmail);
+            $updateStmt->execute();
 
+            // Send email with reset code using PHPMailer
+            $mail = new PHPMailer(true);
+
+            try {
+                // Server settings
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'crystesoftware@gmail.com';
+                $mail->Password   = 'lusl hikk iuac pynx';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port       = 587;
 
 
             $mail->Timeout = 60; // 60 seconds
@@ -338,6 +342,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+            
             ';
             // Your password reset code For orimiSasaki.com is: ' . $resetToken . '. This code is valid for 15 minutes.
 
@@ -347,16 +352,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } catch (Exception $e) {
             echo "Mailer Error: {$mail->ErrorInfo}";
-            
+            exit();
         }
 
         $updateStmt->close(); // Close the statement here
+    }
+
     } else {
         echo '<script>alert("Email not found in the database. Please check your input.");</script>';
     }
 
     $stmt->close();
     exit();
-} 
+    }
 
 ?>
