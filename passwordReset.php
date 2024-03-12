@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include_once  'dashboard/asset/conn';
 
 // Check if the resetEmail session key is set
 if (isset($_SESSION['resetEmail'])) {
@@ -19,7 +20,7 @@ if (isset($_SESSION['resetEmail'])) {
             $timeLeft = $validTime - ($currentTime - $resetTime);
 
             // Display the countdown timer
-            echo '
+            echo ' 
             <!DOCTYPE html>
             <style>
                 .strength-status {
@@ -122,6 +123,8 @@ if (isset($_SESSION['resetEmail'])) {
     header("Location: login.php");
     exit();
 }
+
+
 ?>
 
 <!-- JavaScript -->
@@ -223,81 +226,58 @@ if (isset($_SESSION['resetEmail'])) {
 </body>
             </html>
 
-            <?php
-
+           <?php
+         
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Check if the resetEmail and resetKey are set
-    if (isset($_SESSION['resetEmail'], $_POST['resetKey'])) {
-        $resetEmail = $_SESSION['resetEmail'];
-        $resetKey = $_POST['resetKey'];
 
-        // Validate the reset key (You may need to adjust this based on your implementation)
-        // Example: Assume your reset key is stored in the database
-        $validResetKey = validateResetKey($pdo, $resetEmail, $resetKey);
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+    // include 'dashboard/asset/conn.php';
+    // Check if the reset key is valid
+    $resetKey = filter_input(INPUT_POST, 'resetKey', FILTER_SANITIZE_STRING);
+    $newPass = filter_input(INPUT_POST, 'newPass', FILTER_SANITIZE_STRING);
+    $confirmPass = filter_input(INPUT_POST, 'confirmPass', FILTER_SANITIZE_STRING);    
 
-        if ($validResetKey) {
-            // Check if newPass and confirmPass are set
-            if (isset($_POST['newPass'], $_POST['confirmPass'])) {
-                $newPass = $_POST['newPass'];
-                $confirmPass = $_POST['confirmPass'];
+    // Check if the reset key is valid
+    $sql = "SELECT * FROM user WHERE userEmail = ? AND resetToken = ? AND Token_Generated_Time >= NOW() - INTERVAL 15 MINUTE";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ss", $resetEmail, $resetKey);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
 
-                // Check if passwords match
-                if ($newPass === $confirmPass) {
-                    // Hash the new password (you should use password_hash)
-                    $hashedPassword = password_hash($newPass, PASSWORD_DEFAULT);
+    if ($row) {
+        // The reset key is valid, update the user's password
+        if ($newPass === $confirmPass) {
+            // Hash the new password
+            $hashedPass = password_hash($newPass, PASSWORD_DEFAULT);
 
-                    // Update the user's password in the database
-                    $updatePassword = updatePassword($resetEmail, $hashedPassword);
+            // Update the user's password
+            $sql = "UPDATE user SET userPassword = ? WHERE userEmail = ?";
+            $stmt = $connection->prepare($sql);
 
-                    if ($updatePassword) {
-                        echo '<script>alert("Password updated successfully.");</script>';
-                        // Redirect to login or any other page
-                        echo '<script>
-                        setTimeout(function() {
-                            window.location.href = "login.php";
-                        }, 10000);
-                    </script>';
-                        exit();
-                    } else {
-                        echo '<script>alert("Failed to update password. Please try again.");</script>';
-                    }
-                } else {
-                    echo '<script>alert("Passwords do not match.");</script>';
-                }
-            } else {
-                echo '<script>alert("New password and confirm password are required.");</script>';
-            }
+            $stmt->bind_param("ss", $hashedPass, $resetEmail);
+            $stmt->execute();
+
+            // Delete the reset key from the database
+            $sql = "DELETE resetToken FROM user WHERE userEmail = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("ss", $resetKey,$resetEmail);
+            $stmt->execute();
+
+            // Inform the user and redirect to the login page
+            echo '<script>alert("Your password has been reset successfully. Please login with your new password.");</script>';
+            header("Location: login.php");
+            exit();
         } else {
-            echo '<script>alert("Invalid reset key.");</script>';
+            // The new passwords do not match, inform the user
+            echo '<script>alert("The new passwords do not match. Please Enter password Same.");</script>';
         }
     } else {
-        echo '<script>alert("Invalid request.");</script>';
+        // The reset key is invalid, inform the user
+        echo '<script>alert("The password reset key is invalid. Please try again.");</script>';
     }
-} else {
-    echo '<script>alert("Invalid request method.");</script>';
 }
-
-// Function to validate reset key
-function validateResetKey($pdo, $email, $resetKey) {
-    // Use prepared statements to prevent SQL injection
-    $stmt = $pdo->prepare("SELECT * FROM reset_keys WHERE email = ? AND reset_key = ? AND expiry_time > NOW()");
-    $stmt->execute([$email, $resetKey]);
-
-    // Check if a row is returned
-    return $stmt->fetch() !== false;
-}
-
-
-
-// Function to update the user's password
-function updatePassword($email, $hashedPassword) {
-    // Implement your logic to update the user's password
-    // Use prepared statements to prevent SQL injection
-    $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE email = ?");
-    $success = $stmt->execute([$hashedPassword, $email]);
-
-    return $success;
-}
-
-?>
+           ?>
