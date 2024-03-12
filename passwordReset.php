@@ -1,13 +1,18 @@
 <?php
-include 'header.php';
-include_once  'dashboard/asset/conn';
+include 'header.php' ;
+
+$connection = new mysqli("localhost", "root", "", "orimiSasaki");
+// session_start();
+// include 'dashboard/asset/conn.php';
 
 // Check if the resetEmail session key is set
 if (isset($_SESSION['resetEmail'])) {
     $resetEmail = $_SESSION['resetEmail'];
 
+    // var_dump($connection);
+
     if (isset($_SESSION['resetTime'])) {
-        $resetTime = strtotime($_SESSION['resetTime']); // Convert session time to Unix timestamp
+        $resetTime = strtotime($_SESSION['resetTime']); 
 
         // Check if the reset key is valid within the 15-minute timeframe
         $currentTime = time(); // Current time in seconds
@@ -231,8 +236,8 @@ if (isset($_SESSION['resetEmail'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
     // include 'dashboard/asset/conn.php';
     // Check if the reset key is valid
@@ -261,17 +266,12 @@ error_reporting(E_ALL);
             $stmt->bind_param("ss", $hashedPass, $resetEmail);
             $stmt->execute();
 
-            // Delete the reset key from the database
-            $sql = "DELETE resetToken FROM user WHERE userEmail = ?";
-            $stmt = $connection->prepare($sql);
-            $stmt->bind_param("ss", $resetKey,$resetEmail);
-            $stmt->execute();
-
+          
             // Inform the user and redirect to the login page
             echo '<script>alert("Your password has been reset successfully. Please login with your new password.");</script>';
             header("Location: login.php");
             exit();
-        } else {
+        } else { 
             // The new passwords do not match, inform the user
             echo '<script>alert("The new passwords do not match. Please Enter password Same.");</script>';
         }
@@ -279,5 +279,7 @@ error_reporting(E_ALL);
         // The reset key is invalid, inform the user
         echo '<script>alert("The password reset key is invalid. Please try again.");</script>';
     }
+} else {
+    echo'form error';
 }
            ?>
