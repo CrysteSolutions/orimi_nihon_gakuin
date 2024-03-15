@@ -22,12 +22,12 @@ include 'header.php';
                     <div class="row">
                         <div class="col-md-6">
                             <p class="about-describe info-left">
-                                Maiores montes? Egestas imperdiet voluptates dolor volutpat magnis fugit laboris ullamcorper nam? Nostrum atque fames tempore excepteur tincidunt? Volutpat rerum laboris potenti, varius dui. Eleifend quaerat tempora repudiandae quo, adipisicing mollit nisl, tristique, tenetur exi.
+                            Welcome to Orimi Sasaki Nihon Gakuin, your dedicated agency for navigating the journey to study in Japan. Based in the heart of Sri Lanka, we specialize in securing student visas and crafting educational experiences that open doors to Japan's prestigious institutions. With personalized guidance and expert advice, we're here to simplify the visa process and support your aspirations of academic excellence in the Land of the Rising Sun. Start your adventure with Orimi Sasaki Nihon Gakuin, where your Japanese educational dreams become a reality. 🌸🎓 At Orimi Sasaki Nihon Gakuin, we don't just open the gateway to Japan's educational landscape; we ensure you're fully equipped for the journey ahead.
                             </p>
                         </div>
                         <div class="col-md-6">
                             <p class="about-describe info-right">
-                                Diamlorem dapibus congue nostrud, purus molestiae, explicabo error quia exercitationem, veniam aperiam, odit anim pariatur, per, cubilia voluptas porttitor iusto ducimus cubilia! Fames cumque pulvinar morbi nobis condimentum provident perferendis.
+                             Our comprehensive services include pre-departure orientations, language training, and cultural assimilation workshops to make your transition as smooth as possible. We believe in nurturing a community of learners who are not only academically prepared but also culturally adept, ready to embrace the rich heritage and innovative spirit of Japan. With us, you'll gain more than a visa; you'll embark on a transformative experience that will shape your future. Dive into the vibrant student life, be part of groundbreaking research, and build a network that spans the globe. Your path to global citizenship begins here at Orimi Sasaki Nihon Gakuin. 🗾📚
                             </p>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ include 'header.php';
                             </div>
                             <h4>Intro College Video</h4>
                             <p>
-                                Accusantium nunc labore, voluptas, justo, netus diam eros varius mattis maxime ratione aliquet sollicitudin.
+                            Discover, explore, and launch your future with our Intro College Video. Your educational adventure awaits! 🎓✨
                             </p>
                         </div>
                     </div>
@@ -130,7 +130,7 @@ include 'header.php';
             </div>
             <!-- About page html end -->
             <!-- home team section html start -->
-            <section class="home-team-section">
+            <!-- <section class="home-team-section">
                 <div class="container">
                     <div class="overlay"></div>
                     <div class="row align-items-end">
@@ -275,7 +275,7 @@ include 'header.php';
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- home team section html end -->
         </main>
         <!-- footer part -->

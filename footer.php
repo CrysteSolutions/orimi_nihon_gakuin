@@ -60,17 +60,15 @@
                                 <h5 class="widget-title">Quick LInks</h5>
                                 <ul>
                                     <li>
-                                        <a href="about.html">About us</a>
+                                        <a href="about.php">About us</a>
                                     </li>
                                     <li>
-                                        <a href="career.html">Careers</a>
+                                        <a href="career.php">Careers</a>
                                     </li>
                                     <li>
-                                        <a href="single-blog.html">News & Articles</a>
+                                        <a href="blog-archive.php">News & Articles</a>
                                     </li>
-                                    <li>
-                                        <a href="legal-notice.html">Legal Notice</a>
-                                    </li>
+                                    
                                 </ul>
                             </aside>
                         </div>
@@ -79,17 +77,15 @@
                                 <h5 class="widget-title">Support</h5>
                                 <ul>
                                     <li>
-                                        <a href="faq.html">Help Center</a>
+                                        <a href="faq.php">Help Center</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact Us</a>
+                                        <a href="contact.php">Contact Us</a>
                                     </li>
-                                    <li>
-                                        <a href="product-cart.html">Payment Center</a>
-                                    </li>
-                                    <li>
-                                        <a href="about.html">Parent Community</a>
-                                    </li>
+                                    
+                                    <!-- <li>
+                                        <a href="about.php">Parent Community</a>
+                                    </li> -->
                                 </ul>
                             </aside>
                         </div>
