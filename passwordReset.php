@@ -279,7 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // The reset key is invalid, inform the user
         echo '<script>alert("The password reset key is invalid. Please try again.");</script>';
     }
-} else {
+}   else {
     echo'form error';
 }
            ?>
