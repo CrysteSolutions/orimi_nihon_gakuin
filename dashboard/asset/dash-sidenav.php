@@ -149,6 +149,7 @@ a.active {
             <li><a href="dash-blog.php" <?php echo isPageActive('dash-blog.php'); ?> ><i class="fas fa-blog btn"></i>Blogs</a></li>
             <li><a href="dash-contactInfo.php" <?php echo isPageActive('dash-contactInfo.php'); ?> ><i class="fas fa-address-book btn"></i>Contact</a></li>
             <li><a href="dash-gallery.php" <?php echo isPageActive('dash-gallery.php'); ?> ><i class="fas fa-map-pin btn"></i>gallery</a></li>
+            <li><a href="register.php" <?php echo isPageActive('register.php'); ?> ><i class="fas fa-map-pin btn"></i>register User</a></li>
             <li><a href="asset/logout.php"  ><i class="fas fa fa-sign-out btn"></i>logout</a></li>
           
         </ul> 
