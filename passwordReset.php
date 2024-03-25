@@ -323,4 +323,8 @@ if (isset($_SESSION['resetEmail'])) {
 
            ?>
 
-           
+
+<?php
+session_destroy();
+?> 
+
