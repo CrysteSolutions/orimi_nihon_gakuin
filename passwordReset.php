@@ -232,54 +232,95 @@ if (isset($_SESSION['resetEmail'])) {
             </html>
 
            <?php
-         
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Add this line to indicate the beginning of the POST section
+            echo "Entered the POST section<br>";
+        
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        
+            // include 'dashboard/asset/conn.php';
+            // Check if the reset key is valid
+            $resetKey = filter_input(INPUT_POST, 'resetKey', FILTER_SANITIZE_STRING);
+            $newPass = filter_input(INPUT_POST, 'newPass', FILTER_SANITIZE_STRING);
+            $confirmPass = filter_input(INPUT_POST, 'confirmPass', FILTER_SANITIZE_STRING);
+        
+            // Add this line to indicate the start of the validation process
+            echo "Validating reset key<br>";
+        
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+            echo "Reset key from form: " . $resetKey . "<br>";
 
-    // include 'dashboard/asset/conn.php';
-    // Check if the reset key is valid
-    $resetKey = filter_input(INPUT_POST, 'resetKey', FILTER_SANITIZE_STRING);
-    $newPass = filter_input(INPUT_POST, 'newPass', FILTER_SANITIZE_STRING);
-    $confirmPass = filter_input(INPUT_POST, 'confirmPass', FILTER_SANITIZE_STRING);    
+            // Check if the reset key is valid
+            // Check if the reset key is valid
+                $sql = "SELECT * FROM user WHERE userEmail = ? AND resetToken = ? AND Token_Generated_Time >= NOW() - INTERVAL 15 MINUTE";
+                $stmt = $connection->prepare($sql);
 
-    // Check if the reset key is valid
-    $sql = "SELECT * FROM user WHERE userEmail = ? AND resetToken = ? AND Token_Generated_Time >= NOW() - INTERVAL 15 MINUTE";
-    $stmt = $connection->prepare($sql);
-    $stmt->bind_param("ss", $resetEmail, $resetKey);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+                if (!$stmt) {
+                    // Check for SQL error
+                    echo "Error: " . $connection->error; // Output any error
+                } else {
+                    // Bind parameters and execute the statement
+                    $stmt->bind_param("ss", $resetEmail, $resetKey);
+                    $stmt->execute();
 
-    if ($row) {
-        // The reset key is valid, update the user's password
-        if ($newPass === $confirmPass) {
-            // Hash the new password
-            $hashedPass = password_hash($newPass, PASSWORD_DEFAULT);
+                    // Get the result set
+                    $result = $stmt->get_result();
 
-            // Update the user's password
-            $sql = "UPDATE user SET userPassword = ? WHERE userEmail = ?";
-            $stmt = $connection->prepare($sql);
+                    // Check if the result set is not empty
+                    if ($result->num_rows > 0) {
+                        // Fetch the row
+                        $row = $result->fetch_assoc();
 
-            $stmt->bind_param("ss", $hashedPass, $resetEmail);
-            $stmt->execute();
+                        // Debugging: Output the database row to see if the reset token matches
+                        echo "Database row:<br>";
+                        print_r($row);
+                        
+                        // Rest of your code
+                    } else {
+                        // The reset key is invalid, inform the user
+                        echo '<script>alert("The password reset key is invalid. Please try again.");</script>';
+                    }
+                }
 
-          
-            // Inform the user and redirect to the login page
-            echo '<script>alert("Your password has been reset successfully. Please login with your new password.");</script>';
-            header("Location: login.php");
-            exit();
-        } else { 
-            // The new passwords do not match, inform the user
-            echo '<script>alert("The new passwords do not match. Please Enter password Same.");</script>';
+
+            if ($row) {
+                // The reset key is valid, update the user's password
+                if ($newPass === $confirmPass) {
+                    // Add this line to indicate that password matching check passed
+                    echo "Passwords match<br>";
+        
+                    // Hash the new password
+                    $hashedPass = password_hash($newPass, PASSWORD_DEFAULT);
+        
+                    // Update the user's password
+                    $sql = "UPDATE user SET userPassword = ? WHERE userEmail = ?";
+                    $stmt = $connection->prepare($sql);
+        
+                    $stmt->bind_param("ss", $hashedPass, $resetEmail);
+                    $stmt->execute();
+        
+                    // Inform the user and redirect to the login page
+                    echo '<script>alert("Your password has been reset successfully. Please login with your new password.");</script>';
+                    header("Location: login.php");
+                    exit();
+                } else {
+                    // The new passwords do not match, inform the user
+                    echo '<script>alert("The new passwords do not match. Please Enter password Same.");</script>';
+                }
+            } else {
+                // The reset key is invalid, inform the user
+                echo '<script>alert("The password reset key is invalid. Please try again.");</script>';
+            }
+        } else {
+            // Add this line to indicate that the POST method was not triggered
+            echo 'No form submission detected<br>';
         }
-    } else {
-        // The reset key is invalid, inform the user
-        echo '<script>alert("The password reset key is invalid. Please try again.");</script>';
-    }
-}   else {
-    echo'form error';
-}
+
+
+
+
            ?>
+
+           
