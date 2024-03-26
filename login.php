@@ -1,7 +1,7 @@
 <?php
 
 require ("dashboard/asset/conn.php");
-
+include 'header.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get username or email and password from the form
     $usernameOrEmail = $_POST['username'];
@@ -40,9 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php 
-include 'header.php';
-?>
+
 
 
 <body class="home">
