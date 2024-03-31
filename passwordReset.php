@@ -2,14 +2,13 @@
 include 'header.php' ;
 
 $connection = new mysqli("localhost", "root", "", "orimiSasaki");
-// session_start();
-// include 'dashboard/asset/conn.php';
+
 
 // Check if the resetEmail session key is set
 if (isset($_SESSION['resetEmail'])) {
     $resetEmail = $_SESSION['resetEmail'];
 
-    // var_dump($connection);
+    
 
     if (isset($_SESSION['resetTime'])) {
         $resetTime = strtotime($_SESSION['resetTime']); 
